@@ -9,8 +9,9 @@ PCI1   NVIDIA RTX3090
 
 PCI2   FENVI 919
 
-PCI3   AMD VEGA64
+PCI3   AMD RX 6600
 		
+PCI4   AQC107
 基于 VENTURA 13.2
 
 USB 正常
@@ -18,8 +19,4 @@ USB 正常
 睡眠 正常
 
 好像没找到不正常的地方。
-
-唯一问题就是  vega 太旧了。
-
-想换新显卡。。HOho
 

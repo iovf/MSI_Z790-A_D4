@@ -30,6 +30,22 @@
                     <key>Path</key>
                     <string>SSDT-USBX.aml</string>
                 </dict>
+                <dict>
+                    <key>Comment</key>
+                    <string></string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>Path</key>
+                    <string>SSDT-GPU-DISABLE.aml</string>
+                </dict>
+                <dict>
+                    <key>Comment</key>
+                    <string></string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>Path</key>
+                    <string>SSDT-GPU-AMD.aml</string>
+                </dict>
             </array>
             <key>Delete</key>
             <array/>
@@ -46,7 +62,7 @@
                 <key>ResetHwSig</key>
                 <false/>
                 <key>ResetLogoStatus</key>
-                <false/>
+                <true/>
                 <key>SyncTableIds</key>
                 <false/>
             </dict>
@@ -105,6 +121,35 @@
         <dict>
             <key>Add</key>
             <dict>
+                <key>PciRoot(0x0)/Pci(0x1C,0x0)/Pci(0x0,0x0)</key>
+                <dict>
+                    <key>AAPL,slot-name</key>
+                    <string>Internal@0,28,0/0,0</string>
+                    <key>device_type</key>
+                    <string>Network controller</string>
+                    <key>model</key>
+                    <string>BCM4360 802.11ac Wireless Network Adapter</string>
+                </dict>
+                <key>PciRoot(0x0)/Pci(0x1C,0x3)/Pci(0x0,0x0)</key>
+                <dict>
+                    <key>AAPL,slot-name</key>
+                    <string>Internal@0,28,3/0,0</string>
+                    <key>device_type</key>
+                    <string>Ethernet controller</string>
+                    <key>model</key>
+                    <string>Intel(R) Ethernet Controller I225-V</string>
+                </dict>
+                <key>PciRoot(0x0)/Pci(0x1C,0x4)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
+                <dict>
+                    <key>@0,name</key>
+                    <string>ATY,Henbury</string>
+                    <key>@1,name</key>
+                    <string>ATY,Henbury</string>
+                    <key>@2,name</key>
+                    <string>ATY,Henbury</string>
+                    <key>@3,name</key>
+                    <string>ATY,Henbury</string>
+                </dict>
                 <key>PciRoot(0x0)/Pci(0x1F,0x3)</key>
                 <dict>
                     <key>layout-id</key>
@@ -165,24 +210,6 @@
                     <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/CPUFriend</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>Any</string>
-                    <key>BundlePath</key>
-                    <string>WhateverGreen.kext</string>
-                    <key>Comment</key>
-                    <string>V1.6.3</string>
-                    <key>Enabled</key>
-                    <true/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/WhateverGreen</string>
                     <key>MaxKernel</key>
                     <string></string>
                     <key>MinKernel</key>
@@ -255,42 +282,6 @@
                     <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/SMCSuperIO</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>Any</string>
-                    <key>BundlePath</key>
-                    <string>RadeonSensor.kext</string>
-                    <key>Comment</key>
-                    <string>V0.3.1</string>
-                    <key>Enabled</key>
-                    <false/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/RadeonSensor</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>Any</string>
-                    <key>BundlePath</key>
-                    <string>SMCRadeonGPU.kext</string>
-                    <key>Comment</key>
-                    <string>V0.3.1</string>
-                    <key>Enabled</key>
-                    <false/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/SMCRadeonGPU</string>
                     <key>MaxKernel</key>
                     <string></string>
                     <key>MinKernel</key>
@@ -410,7 +401,7 @@
                 <key>ExternalDiskIcons</key>
                 <false/>
                 <key>ForceAquantiaEthernet</key>
-                <false/>
+                <true/>
                 <key>ForceSecureBootScheme</key>
                 <false/>
                 <key>IncreasePciBarSize</key>
@@ -626,7 +617,7 @@
                 <key>ROM</key>
                 <data>FAmH5p/h</data>
                 <key>SpoofVendor</key>
-                <true/>
+                <false/>
                 <key>SystemMemoryStatus</key>
                 <string>Auto</string>
                 <key>SystemProductName</key>
@@ -900,6 +891,8 @@
                 <true/>
                 <key>ResizeGpuBars</key>
                 <integer>-1</integer>
+                <key>ResizeUsePciRbIo</key>
+                <false/>
                 <key>TscSyncTimeout</key>
                 <integer>0</integer>
                 <key>UnblockFsConnect</key>
